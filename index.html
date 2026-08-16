@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pure Wolf Movement | Premium Wolf Streetwear</title>
+  <meta name="description" content="Pure Wolf Movement — bold wolf-inspired streetwear built for those who move differently.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#home">PURE WOLF <span>MOVEMENT</span></a>
+    <button class="menu-btn" aria-label="Open menu">☰</button>
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#story">Our Story</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THE PACK IS MOVING</p>
+        <h1>MOVE<br><em>LIKE A WOLF.</em></h1>
+        <p class="hero-text">Premium wolf-inspired streetwear for the bold, the independent, and the ones who never stop moving forward.</p>
+        <a class="btn" href="#shop">SHOP THE COLLECTION</a>
+      </div>
+      <div class="hero-mark">🐺</div>
+    </section>
+
+    <section id="shop" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">FEATURED DROP</p>
+        <h2>ALPHA SIGIL</h2>
+        <p>Two colorways. One unmistakable movement.</p>
+      </div>
+
+      <div class="products">
+        <article class="product">
+          <img src="images/alpha-sigil-blue.png" alt="Black Pure Wolf Movement Alpha Sigil shirt with blue wolf, eagle and dreamcatcher artwork">
+          <div class="product-info">
+            <span class="tag">BLUE NIGHT</span>
+            <h3>Alpha Sigil — Midnight Blue</h3>
+            <p>Black tee with the 444 paw mark on the front and full-back wolf, eagle and dreamcatcher artwork.</p>
+            <a class="product-btn" href="https://pure-wolf-mode.base44.app/product/alpha-sigil-tee" target="_blank" rel="noopener">VIEW PRODUCT</a>
+          </div>
+        </article>
+
+        <article class="product">
+          <img src="images/alpha-sigil-purple.png" alt="Black Pure Wolf Movement Alpha Sigil shirt with purple wolf, eagle and dreamcatcher artwork">
+          <div class="product-info">
+            <span class="tag">PURPLE NIGHT</span>
+            <h3>Alpha Sigil — Dark Purple</h3>
+            <p>A deeper purple edition with the same signature 444 paw and full-back cosmic wolf artwork.</p>
+            <a class="product-btn" href="https://pure-wolf-mode.base44.app/product/alpha-sigil-tee" target="_blank" rel="noopener">VIEW PRODUCT</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="story" class="story section">
+      <div>
+        <p class="eyebrow">THE MOVEMENT</p>
+        <h2>NOT JUST A SHIRT.<br><em>IT'S A STATEMENT.</em></h2>
+      </div>
+      <p>Pure Wolf Movement was created around strength, independence, instinct and the courage to keep going. Every design is made to feel different from ordinary streetwear — powerful artwork, dark skies, wolves, eagles and symbols that tell a story.</p>
+    </section>
+
+    <section class="statement">
+      <p>“WALK YOUR OWN PATH.<br>LEAD YOUR OWN PACK.”</p>
+    </section>
+
+    <section id="contact" class="section contact">
+      <p class="eyebrow">CONTACT</p>
+      <h2>JOIN THE MOVEMENT</h2>
+      <p>Questions about Pure Wolf Movement or the collection?</p>
+      <a class="btn" href="mailto:purewolfmovement@gmail.com">EMAIL US</a>
+      <p class="small">Replace this email with your real business email before publishing.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo">PURE WOLF <span>MOVEMENT</span></div>
+    <p>© 2026 Pure Wolf Movement. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menu = document.querySelector('.menu-btn');
+    const nav = document.querySelector('#nav');
+    menu.addEventListener('click', () => nav.classList.toggle('open'));
+    document.querySelectorAll('#nav a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+  </script>
+</body>
+</html>
