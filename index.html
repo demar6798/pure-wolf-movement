@@ -1,94 +1,836 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pure Wolf Movement | Premium Wolf Streetwear</title>
-  <meta name="description" content="Pure Wolf Movement — bold wolf-inspired streetwear built for those who move differently.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pure Wolf Movement — Be Original. Move Different.</title>
+
+<meta name="description" content="Pure Wolf Movement — bold independent streetwear inspired by wolves, freedom, strength and individuality.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050507;
+  color: #ffffff;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --purple: #a855f7;
+  --purple-dark: #6d28d9;
+  --line: #30243d;
+  --muted: #aaa3b3;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: auto;
+}
+
+/* HEADER */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(4,4,7,.78);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(168,85,247,.25);
+}
+
+.nav {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: "Bebas Neue";
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: #b66cff;
+}
+
+nav {
+  display: flex;
+  gap: 26px;
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  color: #c084fc;
+}
+
+.cart {
+  border: 1px solid #594568;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  padding-top: 72px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 20% 45%, rgba(124,58,237,.30), transparent 32%),
+    radial-gradient(circle at 82% 32%, rgba(168,85,247,.22), transparent 27%),
+    linear-gradient(120deg,#050507,#12091a 52%,#050507);
+}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      125deg,
+      transparent 0 80px,
+      rgba(168,85,247,.035) 81px 82px
+    );
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 70px 0;
+}
+
+.kicker {
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: #c084fc;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: "Bebas Neue";
+  font-size: clamp(5rem,14vw,12rem);
+  line-height: .72;
+  letter-spacing: 5px;
+  text-shadow: 0 0 35px rgba(168,85,247,.35);
+  margin: 18px 0;
+}
+
+h1 span {
+  color: #a855f7;
+}
+
+.tag {
+  font-size: clamp(.8rem,2vw,1.1rem);
+  letter-spacing: 3px;
+  font-weight: 800;
+}
+
+.tag b {
+  color: #c084fc;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-flex;
+  padding: 15px 26px;
+  border-radius: 3px;
+  background: linear-gradient(135deg,#b55cff,#6d28d9);
+  font-weight: 900;
+  font-size: .78rem;
+  letter-spacing: 1px;
+  border: 1px solid #cf9cff;
+  box-shadow: 0 0 25px rgba(124,58,237,.3);
+}
+
+.btn.alt {
+  background: transparent;
+  box-shadow: none;
+  border-color: #65536f;
+}
+
+.hero-note {
+  margin: 42px auto 0;
+  color: #81798a;
+  font-size: .7rem;
+  letter-spacing: 2px;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 92px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title .kicker {
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-family: "Bebas Neue";
+  font-size: 3.4rem;
+  letter-spacing: 2px;
+}
+
+.section-title p {
+  color: var(--muted);
+  max-width: 650px;
+  margin: 8px auto;
+}
+
+/* PRODUCTS */
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 25px;
+}
+
+.card {
+  background: linear-gradient(145deg,#111015,#09090c);
+  border: 1px solid #30243d;
+  position: relative;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(168,85,247,.7);
+  box-shadow: 0 20px 50px rgba(0,0,0,.45);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1.25;
+  object-fit: cover;
+  background: #0b0b0f;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+}
+
+.price {
+  color: #c084fc;
+  font-weight: 900;
+  margin: 6px 0 18px;
+}
+
+.pill {
+  display: inline-block;
+  border: 1px solid #543b64;
+  padding: 5px 9px;
+  font-size: .6rem;
+  letter-spacing: 1px;
+  color: #caa8dc;
+  margin-bottom: 12px;
+}
+
+/* FEATURES */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.feature {
+  padding: 28px 18px;
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+
+.feature:last-child {
+  border: 0;
+}
+
+.icon {
+  font-size: 1.8rem;
+  color: #c084fc;
+  margin-bottom: 9px;
+}
+
+.feature h3 {
+  font-size: .8rem;
+}
+
+.feature p {
+  font-size: .68rem;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+/* STORY */
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: stretch;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  padding: 36px;
+  background: linear-gradient(145deg,#100d14,#08080a);
+}
+
+.panel h3 {
+  font-family: "Bebas Neue";
+  font-size: 2.3rem;
+  letter-spacing: 1px;
+}
+
+.panel p {
+  color: var(--muted);
+  margin-top: 10px;
+  line-height: 1.9;
+}
+
+/* RETAIL */
+
+.retail {
+  background:
+    radial-gradient(circle at 80% 30%,rgba(168,85,247,.22),transparent 35%),
+    #100b15;
+
+  border: 1px solid #503361;
+  padding: 55px;
+  text-align: center;
+}
+
+.retail h2 {
+  font-size: 3.5rem;
+}
+
+.retail p {
+  color: #b9b0c0;
+  max-width: 720px;
+  margin: 10px auto 25px;
+}
+
+/* CONTACT */
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.contact .panel a {
+  color: #c084fc;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 35px 0;
+  color: #81798a;
+  font-size: .7rem;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* MOBILE */
+
+@media(max-width:800px) {
+
+  nav {
+    display: none;
+  }
+
+  .products,
+  .story,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .feature:nth-child(2) {
+    border-right: 0;
+  }
+
+  .feature:nth-child(-n+2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-inner {
+    padding: 45px 0;
+  }
+
+  h1 {
+    font-size: 5.5rem;
+  }
+
+  .retail {
+    padding: 35px 20px;
+  }
+
+  .retail h2 {
+    font-size: 2.7rem;
+  }
+}
+</style>
 </head>
+
 <body>
-  <header class="site-header">
-    <a class="logo" href="#home">PURE WOLF <span>MOVEMENT</span></a>
-    <button class="menu-btn" aria-label="Open menu">☰</button>
-    <nav id="nav">
-      <a href="#home">Home</a>
-      <a href="#shop">Shop</a>
-      <a href="#story">Our Story</a>
-      <a href="#contact">Contact</a>
+
+<header>
+  <div class="container nav">
+
+    <a class="logo" href="#home">
+      PURE WOLF <span>MOVEMENT</span>
+    </a>
+
+    <nav>
+      <a href="#home">HOME</a>
+      <a href="#shop">SHOP</a>
+      <a href="#story">OUR STORY</a>
+      <a href="#retail">RETAIL PARTNERS</a>
+      <a href="#contact">CONTACT</a>
     </nav>
-  </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">THE PACK IS MOVING</p>
-        <h1>MOVE<br><em>LIKE A WOLF.</em></h1>
-        <p class="hero-text">Premium wolf-inspired streetwear for the bold, the independent, and the ones who never stop moving forward.</p>
-        <a class="btn" href="#shop">SHOP THE COLLECTION</a>
+    <a class="cart" href="#shop" aria-label="Shop">
+      🛒
+    </a>
+
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-inner container">
+
+    <div class="kicker">
+      Original Independent Streetwear
+    </div>
+
+    <h1>
+      PURE WOLF<br>
+      <span>MOVEMENT</span>
+    </h1>
+
+    <div class="tag">
+      BE ORIGINAL. <b>BE STRONG.</b> MOVE DIFFERENT.
+    </div>
+
+    <div class="hero-actions">
+
+      <a class="btn" href="#shop">
+        SHOP NOW
+      </a>
+
+      <a class="btn alt" href="#retail">
+        BECOME A RETAIL PARTNER
+      </a>
+
+    </div>
+
+    <div class="hero-note">
+      WOLF • EAGLE • FREEDOM • STRENGTH • 444
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SHOP -->
+
+<section id="shop">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <div class="kicker">
+        Featured Designs
       </div>
-      <div class="hero-mark">🐺</div>
-    </section>
 
-    <section id="shop" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">FEATURED DROP</p>
-        <h2>ALPHA SIGIL</h2>
-        <p>Two colorways. One unmistakable movement.</p>
-      </div>
+      <h2>
+        THE ALPHA SIGIL
+      </h2>
 
-      <div class="products">
-        <article class="product">
-          <img src="images/alpha-sigil-blue.png" alt="Black Pure Wolf Movement Alpha Sigil shirt with blue wolf, eagle and dreamcatcher artwork">
-          <div class="product-info">
-            <span class="tag">BLUE NIGHT</span>
-            <h3>Alpha Sigil — Midnight Blue</h3>
-            <p>Black tee with the 444 paw mark on the front and full-back wolf, eagle and dreamcatcher artwork.</p>
-            <a class="product-btn" href="https://pure-wolf-mode.base44.app/product/alpha-sigil-tee" target="_blank" rel="noopener">VIEW PRODUCT</a>
-</div></article>
-        <article class="product">
-          <img src="images/alpha-sigil-purple.png" alt="Black Pure Wolf Movement Alpha Sigil shirt with purple wolf, eagle and dreamcatcher artwork">
-          <div class="product-info">
-            <span class="tag">PURPLE NIGHT</span>
-            <h3>Alpha Sigil — Dark Purple</h3>
-         <p>A deeper purple edition with the same signature 444 paw and full-back cosmic wolf artwork.</p>
-<a class="product-btn" href="https://pure-wolf-mode.base44.app/product/alpha-sigil-tee">VIEW PRODUCT</a>
+      <p>
+        The signature Pure Wolf Movement design.
+        Bold artwork made to stand out.
+      </p>
+
+    </div>
+
+
+    <div class="products">
+
+      <!-- BLUE -->
+
+      <article class="card">
+
+        <img
+          src="images/alpha-sigil-blue.png"
+          alt="Pure Wolf Movement Alpha Sigil blue shirt"
+        >
+
+        <div class="card-body">
+
+          <span class="pill">
+            SIGNATURE DESIGN
+          </span>
+
+          <h3>
+            Alpha Sigil Tee — Midnight Blue
+          </h3>
+
+          <div class="price">
+            VIEW PRODUCT
+          </div>
+
+          <a
+            class="btn"
+            href="https://pure-wolf-mode.base44.app/product/alpha-sigil-tee"
+            target="_blank"
+            rel="noopener"
+          >
+            ORDER NOW
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- PURPLE -->
+
+      <article class="card">
+
+        <img
+          src="images/alpha-sigil-purple.png"
+          alt="Pure Wolf Movement Alpha Sigil purple shirt"
+        >
+
+        <div class="card-body">
+
+          <span class="pill">
+            SIGNATURE DESIGN
+          </span>
+
+          <h3>
+            Alpha Sigil Tee — Dark Purple
+          </h3>
+
+          <div class="price">
+            VIEW PRODUCT
+          </div>
+
+          <a
+            class="btn"
+            href="https://pure-wolf-mode.base44.app/product/alpha-sigil-tee"
+            target="_blank"
+            rel="noopener"
+          >
+            ORDER NOW
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<div class="features">
+
+  <div class="feature">
+    <div class="icon">🐺</div>
+    <h3>ORIGINAL DESIGNS</h3>
+    <p>Created to be different.</p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">⚡</div>
+    <h3>MAKE A STATEMENT</h3>
+    <p>More than clothing.</p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">♛</div>
+    <h3>PREMIUM LOOK</h3>
+    <p>Built to stand out.</p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">♥</div>
+    <h3>SUPPORT SMALL</h3>
+    <p>Support an independent brand.</p>
+  </div>
+
 </div>
-</article>   
+
+
+<!-- STORY -->
+
+<section id="story">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <div class="kicker">
+        The Movement
       </div>
-    </section>
 
-    <section id="story" class="story section">
-      <div>
-        <p class="eyebrow">THE MOVEMENT</p>
-        <h2>NOT JUST A SHIRT.<br><em>IT'S A STATEMENT.</em></h2>
+      <h2>
+        OUR STORY
+      </h2>
+
+    </div>
+
+
+    <div class="story">
+
+      <div class="panel">
+
+        <h3>
+          WE ARE WOLVES.
+        </h3>
+
+        <p>
+          Pure Wolf Movement was created around independence,
+          strength, freedom and the courage to move through life
+          on your own path.
+        </p>
+
+        <p>
+          Every design is meant to say something.
+          The wolf represents instinct.
+          The eagle represents vision and freedom.
+          The 444 mark is part of our signature identity.
+        </p>
+
       </div>
-      <p>Pure Wolf Movement was created around strength, independence, instinct and the courage to keep going. Every design is made to feel different from ordinary streetwear — powerful artwork, dark skies, wolves, eagles and symbols that tell a story.</p>
-    </section>
 
-    <section class="statement">
-      <p>“WALK YOUR OWN PATH.<br>LEAD YOUR OWN PACK.”</p>
-    </section>
 
-    <section id="contact" class="section contact">
-      <p class="eyebrow">CONTACT</p>
-      <h2>JOIN THE MOVEMENT</h2>
-      <p>Questions about Pure Wolf Movement or the collection?</p>
-      <a class="btn" href="mailto:purewolfmovement@gmail.com">EMAIL US</a>
-      <p class="small">Replace this email with your real business email before publishing.</p>
-    </section>
-  </main>
+      <div class="panel">
 
-  <footer>
-    <div class="logo">PURE WOLF <span>MOVEMENT</span></div>
-    <p>© 2026 Pure Wolf Movement. All rights reserved.</p>
-  </footer>
+        <h3>
+          MORE THAN A SHIRT.
+        </h3>
 
-  <script>
-    const menu = document.querySelector('.menu-btn');
-    const nav = document.querySelector('#nav');
-    menu.addEventListener('click', () => nav.classList.toggle('open'));
-    document.querySelectorAll('#nav a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
-  </script>
+        <p>
+          This is a movement for people who refuse to blend in.
+          Wear what represents you. Stand out.
+          Be original. Be strong. Move different.
+        </p>
+
+        <p>
+          <b>PURE WOLF MOVEMENT</b>
+          — made for the ones creating their own path.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- RETAIL -->
+
+<section id="retail">
+
+  <div class="container">
+
+    <div class="retail">
+
+      <div class="kicker">
+        For T-Shirt Shops • Boutiques • Retailers
+      </div>
+
+      <h2>
+        CARRY THE MOVEMENT.
+      </h2>
+
+      <p>
+        Interested in carrying Pure Wolf Movement?
+        We are open to discussing printing, wholesale,
+        consignment and other partnership opportunities
+        with local shops and retailers.
+      </p>
+
+      <a class="btn" href="#contact">
+        LET'S WORK TOGETHER
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <div class="kicker">
+        Connect
+      </div>
+
+      <h2>
+        JOIN THE MOVEMENT
+      </h2>
+
+      <p>
+        For customers, shops and potential partners.
+      </p>
+
+    </div>
+
+
+    <div class="contact">
+
+      <div class="panel">
+
+        <h3>
+          SHOP ONLINE
+        </h3>
+
+        <p>
+          See the current Alpha Sigil collection
+          and order through the online store.
+        </p>
+
+        <p>
+          <a
+            href="https://pure-wolf-mode.base44.app/product/alpha-sigil-tee"
+            target="_blank"
+            rel="noopener"
+          >
+            Open the product page →
+          </a>
+        </p>
+
+      </div>
+
+
+      <div class="panel">
+
+        <h3>
+          RETAIL INQUIRIES
+        </h3>
+
+        <p>
+          Want to discuss carrying the designs in your shop?
+          Contact Pure Wolf Movement to start a conversation.
+        </p>
+
+        <p>
+          <a href="mailto:purewolfmovement@gmail.com">
+            Email Pure Wolf Movement →
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="container foot">
+
+    <div>
+      © 2026 Pure Wolf Movement. All rights reserved.
+    </div>
+
+    <div>
+      BE ORIGINAL. BE STRONG. MOVE DIFFERENT.
+    </div>
+
+  </div>
+
+</footer>
+
 </body>
 </html>
